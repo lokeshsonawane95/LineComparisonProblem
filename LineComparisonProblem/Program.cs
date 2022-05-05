@@ -19,7 +19,7 @@ namespace LineComparisonProgram
             int y2 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("(x1,y1) = ({0},{1})\t\t(x2,y2) = ({2},{3})", x1, y1, x2, y2);
             double length1 = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
-            Console.WriteLine("Length of the line is : " + length1);
+            Console.WriteLine("Length of the first line is : " + length1);
 
             Console.WriteLine("Enter the co-ordinates of second line");
             Console.WriteLine("Enter the first co-ordinate of the second line");
@@ -33,10 +33,22 @@ namespace LineComparisonProgram
             Console.Write("Enter value of y4 : ");
             int y4 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("(x3,y3) = ({0},{1})\t\t(x4,y4) = ({2},{3})", x3, y3, x4, y4);
-            double length2 = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
-            Console.WriteLine("Length of the line is : " + length2);
-            var result = length1.Equals(length2) ? "The two lines are equal in length" : "The two lines are not equal in length";
-            Console.WriteLine(result);
+            double length2 = Math.Sqrt(Math.Pow(x4 - x3, 2) + Math.Pow(y4 - y3, 2));
+            Console.WriteLine("Length of the second line is : " + length2);
+            var result = length1.CompareTo(length2);
+            //Console.WriteLine(result);
+            if (result == 0)
+            {
+                Console.WriteLine("The two lines are equal in length");
+            }
+            else if (result == 1)
+            {
+                Console.WriteLine("First line is greater than second line");
+            }
+            else
+            {
+                Console.WriteLine("First line is shorter than second line");
+            }
         }
     }
 }
